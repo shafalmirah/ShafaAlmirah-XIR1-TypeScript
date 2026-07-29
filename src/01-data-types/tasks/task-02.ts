@@ -23,7 +23,7 @@ const quantity: number = 2;
 const isPremiumMember: boolean = true;
 let stockAvailable: number = 18;
     stockAvailable = stockAvailable - 2;
+const discountedPrice: number = originalPrice - (originalPrice * (discount / 100));
 
 console.log("==Product Data==");
-console.log({productName, productCode, originalPrice, discount, quantity, isPremiumMember, stockAvailable});
-
+console.log({productName, productCode, originalPrice, discount, quantity, isPremiumMember, stockAvailable, discountedPrice});

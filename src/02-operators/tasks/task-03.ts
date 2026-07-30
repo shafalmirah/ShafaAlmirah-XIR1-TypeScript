@@ -1,3 +1,5 @@
+import { constrainedMemory } from "node:process";
+
 /**
  * A company pays employees based on their monthly salary and overtime hours.
  * Employee Information:
@@ -17,3 +19,16 @@
  * - Bonus
  * - Final salary
  */
+const employeeName: string = "Dimas";
+const basicSalary: number = 5000000;
+const overtimeHours: number = 12;
+const overtimeRate: number = 50000;
+let bonus: number = 0;
+if (overtimeHours > 10) { bonus = 300000; }
+const overtimePay: number = overtimeHours * overtimeRate;
+const finalSalary: number = basicSalary + overtimePay + bonus;
+console.log("Overtime Pay:", overtimePay);
+console.log("bonus:", bonus);
+console.log("finalSalary:", finalSalary);
+
+

@@ -14,3 +14,19 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+console.log("==Cafeteria Purchase Calculation==");
+const friedRicePrice: number = 18000;
+const friedRiceQuantity: number = 3;
+const drinkPrice: number = 5000;
+const drinkQuantity: number = 2;
+const discount: number = 10000;
+
+const totalFoodPrice: number = friedRicePrice * friedRiceQuantity;
+const totalDrinkPrice: number = drinkPrice * drinkQuantity;
+const grandTotal: number = totalFoodPrice + totalDrinkPrice;
+const finalPayment: number = grandTotal - discount;
+
+console.log(`Total Food Price: Rp${totalFoodPrice.toLocaleString()}`);
+console.log(`Total Drink Price: Rp${totalDrinkPrice.toLocaleString()}`);
+console.log(`Grand Total: Rp${grandTotal.toLocaleString()}`);
+console.log(`Final Payment: Rp${finalPayment.toLocaleString()}`);

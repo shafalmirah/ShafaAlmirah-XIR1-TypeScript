@@ -14,3 +14,13 @@
  * Task: Store and display the result in a variable named "isEligible"
 
  */
+let finalScore: number = 82;
+let attendance: number = 94;
+let tuitionPaid: boolean = true;
+
+let isEligible: boolean =
+    finalScore >= 75 &&
+    attendance >= 90 &&
+    tuitionPaid;
+
+console.log(isEligible); 

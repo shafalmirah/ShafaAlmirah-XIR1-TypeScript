@@ -22,3 +22,21 @@
  *  - Calculate the final payment.
 
  */
+const keyboardPrice: number = 850000;
+const keyboardQuantity: number = 1;
+const mousePrice: number = 275000;
+const mouseQuantity: number = 2;
+const mousepadPrice: number = 120000;
+const mousepadQuantity: number = 1;
+
+const isPremiumMember: boolean = true;
+const subtotal =
+    (keyboardPrice * keyboardQuantity) +
+    (mousePrice * mouseQuantity) +
+    (mousepadPrice * mousepadQuantity);
+
+let totalItems: number = 0;
+
+
+
+

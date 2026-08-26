@@ -27,6 +27,8 @@ let bonus: number = 0;
 if (overtimeHours > 10) { bonus = 300000; }
 const overtimePay: number = overtimeHours * overtimeRate;
 const finalSalary: number = basicSalary + overtimePay + bonus;
+
+console.log("Dimas Salary");
 console.log("Overtime Pay:", overtimePay);
 console.log("bonus:", bonus);
 console.log("finalSalary:", finalSalary);

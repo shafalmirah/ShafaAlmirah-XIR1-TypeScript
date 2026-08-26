@@ -34,3 +34,15 @@
  * - Free shipping eligibility
 
  */
+const keyboardPrice: number = 850000;
+const keyboardQuantity: number = 1;
+const mousePrice: number = 275000;
+const mouseQuantity: number = 2;
+const monitorStandPrice: number = 420000;
+const monitorStandQuantity: number = 1;
+
+const voucherValue: number = 100000;
+const isPremiumMember: boolean = true;
+const rewardPointRate: number = 50000;
+const vatRate: number = 0.11;   
+

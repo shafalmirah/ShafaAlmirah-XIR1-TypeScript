@@ -33,3 +33,18 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+const studentName: string = "Alya Putri";
+const GPA: number = 3.89;
+const familyIncome: number = 2400000;
+const competition: number = 4;
+const DisciplinaryRecord: boolean = false;
+const DocumentsComplete: boolean = true;
+
+const budget: number = 500000000;
+
+const isAccepted: boolean = GPA >= 3.75 &&
+    familyIncome < 5000000 &&
+    competition >= 3 &&
+    !DisciplinaryRecord &&
+    DocumentsComplete;
+    

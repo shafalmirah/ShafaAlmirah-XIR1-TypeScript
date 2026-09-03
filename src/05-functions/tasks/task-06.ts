@@ -26,21 +26,58 @@ const sales = [
 ];
 
 function calculateTotalSales(sales: number[]): number {
-
+  let total = 0;
+  for (let i = 0; i < sales.length; i++) {
+    total += sales[i];
+  }
+  return total;
 }
 
 function findHighestTransaction(sales: number[]): number {
-
+  let highest = sales[0];
+  for (let i = 1; i < sales.length; i++) {
+    if (sales[i] > highest) {
+      highest = sales[i];
+    }
+  }
+  return highest;
 }
 
 function findLowestTransaction(sales: number[]): number {
-
+  let lowest = sales[0];
+  for (let i = 1; i < sales.length; i++) {
+    if (sales[i] < lowest) {
+      lowest = sales[i];
+    }
+  }
+  return lowest;
 }
 
 function calculateAverageSale(sales: number[]): number {
-
+  return calculateTotalSales(sales) / sales.length;
 }
 
 function countLargeTransactions(sales: number[], minimumAmount: number): number {
-
+  let count = 0;
+  for (let i = 0; i < sales.length; i++) {
+    if (sales[i] > minimumAmount) {
+      count++;
+    }
+  }
+  return count;
 }
+
+// Function to display the sales dashboard
+function displaySalesDashboard(sales: number[]): void {
+  const minLargeTransaction = 500000;
+  
+  console.log("=== Daily Sales Dashboard ===");
+  console.log(`Total Sales: Rp${calculateTotalSales(sales).toLocaleString("id-ID")}`);
+  console.log(`Highest Transaction: Rp${findHighestTransaction(sales).toLocaleString("id-ID")}`);
+  console.log(`Lowest Transaction: Rp${findLowestTransaction(sales).toLocaleString("id-ID")}`);
+  console.log(`Average Transaction: Rp${calculateAverageSale(sales).toLocaleString("id-ID", { maximumFractionDigits: 0 })}`);
+  console.log(`Transactions Above Rp500,000: ${countLargeTransactions(sales, minLargeTransaction)}`);
+}
+
+// Display the dashboard
+displaySalesDashboard(sales);

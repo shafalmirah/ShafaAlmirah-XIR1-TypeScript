@@ -92,3 +92,62 @@ const enrollments = [
         duration: 20
     }
 ];
+
+type E = { student: string; course: string; completed: boolean; score: number; duration: number };
+
+const getTotalEnrollments = (e: E[]): number => e.length;
+const countCompletedEnrollments = (e: E[]): number => e.filter(x => x.completed).length;
+const countIncompleteEnrollments = (e: E[]): number => getTotalEnrollments(e) - countCompletedEnrollments(e);
+const calculateCompletionPercentage = (e: E[]): number => (countCompletedEnrollments(e) / getTotalEnrollments(e)) * 100;
+
+const findHighestScore = (e: E[]): number => Math.max(...e.map(x => x.score));
+const findLowestScore = (e: E[]): number => Math.min(...e.map(x => x.score));
+const calculateAverageScore = (e: E[]): number => e.reduce((sum, x) => sum + x.score, 0) / e.length;
+const countPassingStudents = (e: E[]): number => e.filter(x => x.score >= 75).length;
+
+// Course Statistics
+const getUniqueCourses = (e: E[]): string[] => [...new Set(e.map(x => x.course))];
+const countStudentsInCourse = (e: E[], course: string): number => e.filter(x => x.course === course).length;
+const calculateAverageScoreForCourse = (e: E[], course: string): number => {
+  const filtered = e.filter(x => x.course === course);
+  return filtered.length > 0 ? filtered.reduce((sum, x) => sum + x.score, 0) / filtered.length : 0;
+};
+
+// Learning Statistics
+const getTotalLearningHours = (e: E[]): number => e.reduce((sum, x) => sum + x.duration, 0);
+const calculateAverageDuration = (e: E[]): number => getTotalLearningHours(e) / getTotalEnrollments(e);
+
+// Display Functions
+function printCompletionStatistics(e: E[]): void {
+  console.log("=== Completion Statistics ===");
+  console.log(`Total: ${getTotalEnrollments(e)} | Completed: ${countCompletedEnrollments(e)} | Incomplete: ${countIncompleteEnrollments(e)} | Rate: ${calculateCompletionPercentage(e).toFixed(2)}%`);
+}
+
+function printAcademicStatistics(e: E[]): void {
+  console.log("\n=== Academic Statistics ===");
+  console.log(`Highest: ${findHighestScore(e)} | Lowest: ${findLowestScore(e)} | Average: ${calculateAverageScore(e).toFixed(2)} | Passing: ${countPassingStudents(e)}`);
+}
+
+function printCourseStatistics(e: E[]): void {
+  console.log("\n=== Course Statistics ===");
+  getUniqueCourses(e).forEach(course => 
+    console.log(`${course}: ${countStudentsInCourse(e, course)} students, Avg: ${calculateAverageScoreForCourse(e, course).toFixed(2)}`)
+  );
+}
+
+function printLearningStatistics(e: E[]): void {
+  console.log("\n=== Learning Statistics ===");
+  console.log(`Total Hours: ${getTotalLearningHours(e)} | Avg Duration: ${calculateAverageDuration(e).toFixed(2)} hours`);
+}
+
+function printFullDashboard(e: E[]): void {
+  console.log("╔═══════════════════════════════════════════════════╗");
+  console.log("║  ONLINE LEARNING PLATFORM - DIRECTOR DASHBOARD   ║");
+  console.log("╚═══════════════════════════════════════════════════╝");
+  printCompletionStatistics(e);
+  printAcademicStatistics(e);
+  printCourseStatistics(e);
+  printLearningStatistics(e);
+}
+
+printFullDashboard(enrollments);
